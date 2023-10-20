@@ -156,9 +156,9 @@ class Saucedemo {
 
 	@And("User fill from information and click continue")
 	def fillFormInformation() {
-		WebUI.setText(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="first-name"]'), 'Arif', FailureHandling.STOP_ON_FAILURE)
-		WebUI.setText(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="last-name"]'), 'Muchiyar', FailureHandling.STOP_ON_FAILURE)
-		WebUI.setText(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="postal-code"]'), '112233', FailureHandling.STOP_ON_FAILURE)
+		WebUI.setText(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="first-name"]'), 'Rifi', FailureHandling.STOP_ON_FAILURE)
+		WebUI.setText(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="last-name"]'), 'Rachman', FailureHandling.STOP_ON_FAILURE)
+		WebUI.setText(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="postal-code"]'), '17141', FailureHandling.STOP_ON_FAILURE)
 		WebUI.takeScreenshot()
 		WebUI.click(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="continue"]'))
 	}
@@ -176,7 +176,7 @@ class Saucedemo {
 		WebUI.verifyTextPresent('Thank you for your order!', false, FailureHandling.STOP_ON_FAILURE)
 		WebUI.takeScreenshot()
 	}
-	
+
 	@Given("User click hamburger icon")
 	def clickhumberger() {
 		WebUI.click(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="react-burger-menu-btn"]'))
