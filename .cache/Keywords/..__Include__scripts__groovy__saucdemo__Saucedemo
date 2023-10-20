@@ -1,10 +1,10 @@
 {
-  "keywordFileContentHash": "41ABE5FCE4BA5B144AEFDBA78E94095F",
+  "keywordFileContentHash": "29004344A890396F7C13FE796B4A1B49",
   "keywordClasses": [
     {
       "name": "saucdemo.Saucedemo",
       "keywordMethods": []
     }
   ],
-  "javadocParsed": false
+  "javadocParsed": true
 }

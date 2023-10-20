@@ -18,4 +18,4 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
 
-CucumberKW.runFeatureFileWithTags('Include/features/Checkout.feature', '@Checkout_Product')
+CucumberKW.runFeatureFileWithTags('Include/features/Logout.feature', '@Logout')

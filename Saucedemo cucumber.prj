@@ -6,6 +6,7 @@
    <UUID>afa04675-66a5-45af-9175-17bb7a4b20f5</UUID>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
+   <projectFileLocation>/Users/user/Documents/Rakamin/SwagLab/Saucedemo cucumber.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>

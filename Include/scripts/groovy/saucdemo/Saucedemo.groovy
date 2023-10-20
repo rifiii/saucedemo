@@ -44,8 +44,8 @@ import cucumber.api.java.en.When
 
 
 class Saucedemo {
-	
-/*	LOGIN	Negative*/
+
+	/*	LOGIN	Negative*/
 	@Given("User on the login page")
 	def UserOnLoginPage() {
 		WebUI.openBrowser(GlobalVariable.url)
@@ -60,44 +60,44 @@ class Saucedemo {
 		WebUI.setText(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="password"]'), 'salah')
 		WebUI.takeScreenshot()
 	}
-	
+
 	@And("User click login button")
 	def UserClickbtnLogin() {
 		WebUI.click(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="login-button"]'))
 	}
-	
+
 	@Then("User get Error Message")
 	def GetError() {
 		WebUI.verifyTextPresent('Epic sadface: Username and password do not match any user in this service', false, FailureHandling.STOP_ON_FAILURE)
 		WebUI.takeScreenshot()
 	}
-	
-	
-	
-/*	LOGIN	Positive*/
+
+
+
+	/*	LOGIN	Positive*/
 	@When("User enter valid username and valid password")
 	def ValidUsernamevalidPass() {
 		WebUI.setText(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="user-name"]'), 'standard_user')
 		WebUI.setText(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="password"]'), 'secret_sauce')
 		WebUI.takeScreenshot()
 	}
-	
+
 	@Then("User has successfully logged in")
 	def SuccessLogin() {
 		WebUI.verifyTextPresent('Products', false, FailureHandling.STOP_ON_FAILURE)
 		WebUI.takeScreenshot()
 	}
-	
+
 	//new TestObject().addProperty('xpath', ConditionType.EQUALS, '')
-	
-/*	Filter Produk*/
+
+	/*	Filter Produk*/
 	@Given("User is on the product page")
 	def UserOnproductPage() {
 		WebUI.navigateToUrl('https://www.saucedemo.com/inventory.html')
 		WebUI.verifyElementPresent(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="header_container"]/div[2]/div/span/select'), 0, FailureHandling.STOP_ON_FAILURE)
 		WebUI.takeScreenshot()
 	}
-	
+
 	@When("Users filter products")
 	def FilterProduct() {
 		WebUI.selectOptionByLabel(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="header_container"]/div[2]/div/span/select'), 'Price (high to low)', false)
@@ -109,29 +109,29 @@ class Saucedemo {
 		WebUI.selectOptionByLabel(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="header_container"]/div[2]/div/span/select'), 'Name (A to Z)', false)
 		WebUI.takeScreenshot()
 	}
-	
+
 	@Then("The product has been successfully sorted")
 	def ProductShorted() {
 		WebUI.delay(1)
 	}
-	
-	
-/*	Detail Produk*/
+
+
+	/*	Detail Produk*/
 
 	@When("Users click one product")
 	def ClickProduct() {
 		WebUI.click(findTestObject('Object Repository/Name Product', [('name') : 'Sauce Labs Bolt T-Shirt']), FailureHandling.STOP_ON_FAILURE)
 	}
-	
+
 	@Then("Users on detail product page")
 	def onDetailProductPage() {
 		WebUI.verifyElementPresent(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="back-to-products"]'), 0, FailureHandling.STOP_ON_FAILURE)
 		WebUI.takeScreenshot()
 	}
-	
-	
+
+
 	//new TestObject().addProperty('xpath', ConditionType.EQUALS, '')
-/*	checkout*/
+	/*	checkout*/
 	@When("User add produk to cart")
 	def userAddProduct() {
 		WebUI.click(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="add-to-cart-sauce-labs-backpack"]'))
@@ -139,21 +139,21 @@ class Saucedemo {
 		WebUI.click(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="add-to-cart-sauce-labs-fleece-jacket"]'))
 		WebUI.takeScreenshot()
 	}
-	
+
 	@And("User go to cart menu")
 	def UserGoToCart() {
 		WebUI.click(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="shopping_cart_container"]/a'))
 		WebUI.verifyTextPresent('Your Cart', false, FailureHandling.STOP_ON_FAILURE)
 		WebUI.takeScreenshot()
 	}
-	
+
 	@And("User click checkout product")
 	def checkout() {
 		WebUI.click(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="checkout"]'))
 		WebUI.verifyTextPresent('Checkout: Your Information', false, FailureHandling.STOP_ON_FAILURE)
 		WebUI.takeScreenshot()
 	}
-	
+
 	@And("User fill from information and click continue")
 	def fillFormInformation() {
 		WebUI.setText(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="first-name"]'), 'Arif', FailureHandling.STOP_ON_FAILURE)
@@ -162,20 +162,36 @@ class Saucedemo {
 		WebUI.takeScreenshot()
 		WebUI.click(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="continue"]'))
 	}
-	
+
 	@And("User check information detail booking and click finish")
 	def checkInformation() {
 		WebUI.verifyTextPresent('Checkout: Overview', false, FailureHandling.STOP_ON_FAILURE)
 		WebUI.takeScreenshot()
 		WebUI.click(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="finish"]'))
 	}
-	
-	
+
+
 	@And("User Verify order success")
 	def successCheckout() {
 		WebUI.verifyTextPresent('Thank you for your order!', false, FailureHandling.STOP_ON_FAILURE)
 		WebUI.takeScreenshot()
 	}
 	
+	@Given("User click hamburger icon")
+	def clickhumberger() {
+		WebUI.click(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="react-burger-menu-btn"]'))
+		WebUI.takeScreenshot()
+	}
+	@When("User click Logout button")
+	def clicklogout() {
+		WebUI.click(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="logout_sidebar_link"]'))
+		WebUI.takeScreenshot()
+	}
+	@Then("User success logout")
+	def usersuccessLogout() {
+		WebUI.verifyElementPresent(new TestObject().addProperty('xpath', ConditionType.EQUALS, '//*[@id="user-name"]'), 0, FailureHandling.STOP_ON_FAILURE)
+		WebUI.takeScreenshot()
+	}
+
 
 }
